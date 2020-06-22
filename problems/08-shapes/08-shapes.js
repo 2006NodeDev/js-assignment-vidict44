@@ -45,44 +45,32 @@ function printShape(shape, height, character) {
       }
       break;
     case "Diamond":
-      incrementer = 1;
-      while(incrementer<=height){
-        let firstHalf = (height - incrementer)/2;
-        let spaceStr = "";
-
-        for(i = 0; i <firstHalf; i++ ){
-          spaceStr += " ";
-        }
-
-        for (j = 0; j <incrementer; j++){
-          spaceStr +=character;
-        }
+      firstHalf = (height - 1)/2;
+      for(let i = 0; i<=firstHalf; i++){
+        printDiamond(2-i, 1+2 *i, character)
       }
-      console.log(spaceStr);
-
-      incrementer +=2;
-
-      while (incrementer >=2){
-        let spaceStr = "";
-        incrementer = i-2;
-
-        let secondHalf = (height - incrementer)/2;
-        if(incrementer<height){
-          for (k = 0; k <secondHalf; k++){
-            spaceStr+=" ";
-          }
-
-          for (l = 0; l<incrementer; l++){
-            spaceStr +=character;
-          }
-          console.log(spaceStr);
-        }
+      for(let i = 1; i<3; i++){
+        printDiamond(i, -2 * i + 5, character)
       }
       break;
     default: 
     console.log("That shape does not exist/is not an option currently.");
-    
+    break;
   }
+}
+
+function printDiamond(shape, height, character){
+  let line = "";
+  for (let i = 0; i <shape; i++){
+    line +=" ";
+  }
+  for (let i = 0; i <height; i++){
+    line +=character;
+  }
+  for(let i =0; i<character; i++){
+    line += " ";
+  }
+  console.log(line);
 }
 
 printShape("Square", 3, "%");
