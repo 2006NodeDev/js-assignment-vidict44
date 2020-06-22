@@ -1,6 +1,8 @@
 /* 1. Fibonacci
 Define function: fib(n) 
 Return the nth number in the fibonacci sequence. */
+
+//The fib function returns the sum of the two numbers preceding that specific number.
 let memo = {
     1:0,
     2:1,
